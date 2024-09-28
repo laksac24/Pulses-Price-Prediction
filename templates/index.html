@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pulses Price Prediction</title>
+</head>
+<body>
+<div class="container">
+    <div class="pred-heading">
+        <h1>Welcome to Pulses Price Predictor</h1>
+    </div>
+    <div class="pred-body">
+        <form action="{{url_for('predict')}}" method="post">
+
+            <br>
+            <br>
+            <label><b>Temperature (°C):</b></label>
+            <input type="text" name="temp" id="temp" placeholder="Enter the Value">
+            <br>
+            <br>
+            <label><b>Rainfall (mm):</b></label>
+            <input type="text" name="rain" id="rain" placeholder="Enter the Value">
+            <br>
+            <br>
+            <label><b>Supply (tons):</b></label>
+            <input type="text" name="supply" id="supply" placeholder="Enter the Value">
+            <br>
+            <br>
+            <label><b>Demand (tons):</b></label>
+            <input type="text" name="demand" id="demand" placeholder="Enter the Value">
+            <br>
+            <br>
+            <label><b>Select the Pulse:</b></label>-->
+            <select class="crop_pred" name="CROP" id="CROP" required="1" >
+                {% for crop in crops %}
+                    <option value="{{ crop }}">{{ crop }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            <button type="submit">Predict Price</button>
+
+        </form>
+    </div>
+    <h3>{{prediction_text}}</h3>
+
+
+</body>
+</html>
